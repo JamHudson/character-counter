@@ -26,23 +26,23 @@ public class CharacterFrequencyCounterTest {
 
         int actual = counter.getFrequency('h');
 
-        assertEquals(0,actual);
+        assertEquals(1,actual);
     }
 
     @Test
-    void testGetRelativeFrequencyReturns0ForMissingCharacter() {
+    void testGetRelativePercentageReturns0ForMissingCharacter() {
         CharacterFrequencyCounter counter = new CharacterFrequencyCounter("hello");
 
-        double actual = counter.getFrequency('x');
+        double actual = counter.getRelativePercentage('x');
 
         assertEquals(0.0,actual,0.0);
     }
 
     @Test
-    void testGetRelativeFrequencyReturns40() {
+    void testGetRelativePercentageReturnsAccurate() {
         CharacterFrequencyCounter counter = new CharacterFrequencyCounter("hello");
 
-        double actual = counter.getFrequency('l');
+        double actual = counter.getRelativePercentage('l');
 
         assertEquals(40.0,actual,0.0001);
     }
